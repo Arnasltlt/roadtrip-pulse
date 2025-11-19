@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { useEffect, useState, useRef } from 'react';
@@ -72,6 +72,14 @@ function MapController({ selectedLocation, userLocation }: { selectedLocation: P
         }
     }, [selectedLocation, userLocation, map]);
 
+    return null;
+}
+
+// Component to handle map clicks
+function MapClickHandler({ onClick }: { onClick: () => void }) {
+    useMapEvents({
+        click: onClick,
+    });
     return null;
 }
 
@@ -180,10 +188,8 @@ export function MapInterface() {
                 zoom={13}
                 className="h-full w-full z-0 map-tiles"
                 zoomControl={false}
-                eventHandlers={{
-                    click: () => setSelectedPlaygroundId(null)
-                }}
             >
+                <MapClickHandler onClick={() => setSelectedPlaygroundId(null)} />
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
                     url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
