@@ -1,0 +1,93 @@
+@import "tailwindcss";
+@import "@fontsource/outfit/300.css";
+@import "@fontsource/outfit/400.css";
+@import "@fontsource/outfit/500.css";
+@import "@fontsource/outfit/600.css";
+@import "@fontsource/outfit/700.css";
+@import "@fontsource/outfit/800.css";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Modern Explorer Palette */
+  --color-explorer-teal-900: #0f3c4c;
+  /* Deepest Teal */
+  --color-explorer-teal-800: #155e75;
+  /* Deep Teal */
+  --color-explorer-teal-600: #0891b2;
+  /* Primary Brand */
+  --color-explorer-teal-400: #22d3ee;
+  /* Highlight */
+
+  --color-explorer-orange-500: #f97316;
+  /* Action/Accent */
+  --color-explorer-orange-400: #fb923c;
+  /* Light Accent */
+
+  --color-explorer-sand-100: #f5f5f4;
+  /* Background Off-white */
+  --color-explorer-sand-50: #fafaf9;
+  /* Lighter Background */
+
+  --color-explorer-slate-900: #0f172a;
+  /* Text Primary */
+  --color-explorer-slate-600: #475569;
+  /* Text Secondary */
+}
+
+:root {
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  background-color: var(--color-explorer-sand-50);
+  color: var(--color-explorer-slate-900);
+}
+
+/* Custom Scrollbar for horizontal lists */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Glassmorphism Utility */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+/* Map Tiles Filter - Removed for better contrast */
+/* .map-tiles .leaflet-tile-pane {
+  filter: saturate(1.2) contrast(1.1) brightness(1.05);
+} */
+
+/* Leaflet Controls Cleanup */
+.leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(4px);
+  border-radius: 4px;
+  padding: 0 4px !important;
+  font-size: 10px !important;
+  color: #64748b !important;
+}
+
+.leaflet-control-attribution a {
+  color: #0891b2 !important;
+  text-decoration: none !important;
+}
